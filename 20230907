@@ -1,0 +1,17 @@
+import processing.net.*;
+Server s;
+Client c;
+void setup(){
+  s = new Server(this,12345);
+}
+void draw(){
+  c = s.available();
+  if(c!=null){
+    String m=c.readString();
+    m = m.substring(m.length()-1);  // 마지막 1문자만 추출하기
+    print(m);
+    if(m.equals("0")) fill(255,0,0); 
+    if(m.equals("1")) fill(0,255,0);
+    ellipse(50,50,80,80);
+  }
+}
