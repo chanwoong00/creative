@@ -8,7 +8,7 @@ void draw(){
   c = s.available();
   if(c!=null){
     String m=c.readString();
-    m = m.substring(m.length()-1);  // 마지막 1문자만 추출하기
+    m = m.substring(m.length()-1);  
     print(m);
     if(m.equals("0")) fill(255,0,0); 
     if(m.equals("1")) fill(0,255,0);
