@@ -1,0 +1,46 @@
+15점
+//LED 제어 
+
+
+void setup() {
+  size(400, 400);
+  font = createFont("Arial", 16);
+  textFont(font);
+  textAlign(CENTER, CENTER);
+  client = new Client(this, "COM6", 12345);
+  background(255);
+  fill(0);
+}
+
+void draw() {
+  text("Waiting for response...", width / 2, height / 2);
+}
+
+
+
+//도레시도
+void setup() {
+  pinMode(4, OUTPUT); 
+}
+
+void loop() {
+  tone(4, 261.63); 
+  delay(500);
+  noTone(4); 
+  delay(100); 
+
+  tone(4, 293.66); 
+  delay(500); 
+  noTone(4);
+  delay(100); 
+
+  tone(4, 329.63);
+  delay(500);
+  noTone(4); 
+  delay(100); 
+
+  tone(4, 261.63);
+  delay(500);
+  noTone(4); 
+  delay(1000); 
+}
