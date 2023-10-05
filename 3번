@@ -1,0 +1,47 @@
+아두이노
+int i = 13;
+
+void setup() {
+  pinMode(i, INPUT_PULLUP);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int switchState = digitalRead(i);
+
+  if (switchState == LOW) {
+    Serial.println('1');
+  } 
+
+  else {
+    Serial.println('0');
+  }
+  delay(1000);
+}
+
+
+
+
+프로세싱
+import processing.serial.*;
+Serial s;
+int i; 
+void setup() {
+  size(400, 400);
+  s = new Serial(this, "COM3", 9600);
+}
+
+void draw() {
+  if (s.available() > 0) 
+  {
+    i = s.read(); 
+    if (i == '1') 
+    {
+      background(0, 255, 0); 
+    }
+    if (i == '0') 
+    {
+      background(0); 
+    }
+  }
+}
