@@ -1,0 +1,30 @@
+import processing.net.*;
+
+Client client;
+PFont font;
+
+void setup() {
+  size(400, 400);
+  font = createFont("Arial", 16);
+  textFont(font);
+  textAlign(CENTER, CENTER);
+  client = new Client(this, "COM3", 12345);
+}
+
+void draw() {
+  background(255);
+  fill(0);
+  text("Waiting for response...", width / 2, height / 2);
+}
+
+void clientEvent(Client c) {
+  String serverResponse = c.readString();
+
+  if (serverResponse != null) {
+    if (serverResponse.equals("1")) {
+      background(0, 0, 255); 
+    } else if (serverResponse.equals("0")) {
+      background(255, 0, 0);
+    }
+  }
+}
