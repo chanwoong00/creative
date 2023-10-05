@@ -1,3 +1,4 @@
+15점
 import processing.net.*;
 
 Client client;
